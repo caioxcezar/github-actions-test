@@ -4,13 +4,13 @@ address: "Rua: 8"
 active: true
 key:
   key: value
-  key2: 31
-objectKey: { key: value, key2: 31 }
+  key2: 18
+objectKey: { key: value, key2: 18 }
 array:
   - item1
   - item2
   - { key: value }
-jsonArray: [ item1, item2, { key: value } ]
+jsonArray: [item1, item2, { key: value }]
 objectArray:
   - key: value
   - key: value
