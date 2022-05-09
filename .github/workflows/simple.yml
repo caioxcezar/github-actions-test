@@ -1,23 +1,23 @@
 name: shell Commands
 
-on: [push]
+on: [pull_request]
 
 jobs:
-  run-shell-command: 
+  run-shell-command:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
         run: echo "Hello World"
       - name: multiline script
-        run: | 
+        run: |
           node --version
           npm --version
       - name: python Command
-        run: | 
+        run: |
           import platform
           print(platform.processor())
         shell: python
-  run-windows-commands: 
+  run-windows-commands:
     runs-on: windows-latest
     needs: [run-shell-command]
     steps:
