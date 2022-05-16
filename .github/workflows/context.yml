@@ -1,5 +1,5 @@
 name: Context testing
-on: push
+on: [push, pull_request]
 
 jobs:
   functions:
@@ -13,13 +13,16 @@ jobs:
           echo ${{ format('Hello {0} {1} {2}', 'World', '!', '!') }}
   dump_contexts_to_log:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: Dump GitHub context
         id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        run: eccho '${{ toJSON(github) }}' # Alterado para ocorreu um erro
       - name: Dump job context
+        if: failure() # Esse passo vai ser executado mesmo se o paso anterior falhar
         run: echo '${{ toJSON(job) }}'
       - name: Dump steps context
+        if: always() # Esse passo vai ser sempre executado não importa oque acontessa com o workflow
         run: echo '${{ toJSON(steps) }}'
       - name: Dump runner context
         run: echo '${{ toJSON(runner) }}'
