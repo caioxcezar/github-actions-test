@@ -1,16 +1,16 @@
 name: Actions Workflow
-on:
-  push: 
-    branches:
-      - master
-      # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
-      - 'feature/*' # qualquer branch que comesse com 'feature/'. 
-      - '!feature/featC' # Ignora essas branches
-    tags:
-      - v1.*
-    paths:
-      - '**.js' # se foi feito um push com algum arquivo javascript
-      - '!filename.js' # Não vai executar caso o arquivo seja filename.js
+on: pull_request
+  # push: 
+  #   branches:
+  #     - master
+  #     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+  #     - 'feature/*' # qualquer branch que comesse com 'feature/'. 
+  #     - '!feature/featC' # Ignora essas branches
+  #   tags:
+  #     - v1.*
+  #   paths:
+  #     - '**.js' # se foi feito um push com algum arquivo javascript
+  #     - '!filename.js' # Não vai executar caso o arquivo seja filename.js
   # repository_dispatch: 
   #   types: [build]
   # schedule:
